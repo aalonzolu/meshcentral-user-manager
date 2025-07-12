@@ -1,0 +1,18 @@
+{
+  "name": "Local User Management",
+  "shortName": "usermgmt",
+  "version": "1.0.0",
+  "author": "AALONZO",
+  "description": "Create or delete local Windows user accounts on a device",
+  "hasAdminPanel": false,
+  "homepage": "https://github.com/yourrepo/MeshCentral-UserManagement",
+  "changelogUrl": "https://raw.githubusercontent.com/yourrepo/MeshCentral-UserManagement/master/changelog.md",
+  "configUrl": "https://raw.githubusercontent.com/yourrepo/MeshCentral-UserManagement/master/config.json",
+  "downloadUrl": "https://github.com/yourrepo/MeshCentral-UserManagement/archive/master.zip",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourrepo/MeshCentral-UserManagement.git"
+  },
+  "versionHistoryUrl": "https://api.github.com/repos/yourrepo/MeshCentral-UserManagement/tags",
+  "meshCentralCompat": ">=0.9.98"
+}

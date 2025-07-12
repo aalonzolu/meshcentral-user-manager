@@ -1,0 +1,68 @@
+<h2>Create User</h2>
+<input id="u" placeholder="Username"><br>
+<input id="p" type="password" placeholder="Password"><br>
+<select id="r">
+  <option value="normal">Standard User</option>
+  <option value="admin">Administrator</option>
+</select><br>
+<button onclick="createUser()">Create</button>
+
+<hr>
+
+<h2>Delete User</h2>
+<input id="u2" placeholder="Username to delete"><br>
+<button onclick="deleteUser()">Delete</button>
+
+<div id="status" style="margin-top:10px;color:green;"></div>
+
+<script>
+function createUser() {
+  const username = document.getElementById('u').value.trim();
+  const password = document.getElementById('p').value;
+  const role = document.getElementById('r').value;
+  const status = document.getElementById('status');
+
+  if (!username || !password) {
+    status.style.color = 'red';
+    status.innerText = 'Please enter both username and password.';
+    return;
+  }
+
+  const confirmMsg = `Are you sure you want to create the user "${username}" with ${role === 'admin' ? 'Administrator' : 'Standard'} privileges?`;
+  if (!confirm(confirmMsg)) return;
+
+  status.style.color = 'black';
+  status.innerText = 'Sending create request...';
+
+  parent.postMessage(JSON.stringify({
+    plugin: 'user_manager',
+    action: 'createUser',
+    username: username,
+    password: password,
+    isAdmin: role === 'admin'
+  }), '*');
+}
+
+function deleteUser() {
+  const username = document.getElementById('u2').value.trim();
+  const status = document.getElementById('status');
+
+  if (!username) {
+    status.style.color = 'red';
+    status.innerText = 'Please enter the username to delete.';
+    return;
+  }
+
+  const confirmMsg = `Are you sure you want to delete the user "${username}"? This action cannot be undone.`;
+  if (!confirm(confirmMsg)) return;
+
+  status.style.color = 'black';
+  status.innerText = 'Sending delete request...';
+
+  parent.postMessage(JSON.stringify({
+    plugin: 'user_manager',
+    action: 'deleteUser',
+    username: username
+  }), '*');
+}
+</script>
