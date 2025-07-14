@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "AALONZO",
   "description": "Create or delete local Windows user accounts on a device",
-  "hasAdminPanel": false,
+  "hasAdminPanel": true,
   "homepage": "https://github.com/aalonzolu/meshcentral-user-manager",
   "changelogUrl": "https://raw.githubusercontent.com/aalonzolu/meshcentral-user-manager/master/changelog.md",
   "configUrl": "https://raw.githubusercontent.com/aalonzolu/meshcentral-user-manager/master/config.json",
